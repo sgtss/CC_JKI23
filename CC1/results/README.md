@@ -1,0 +1,1 @@
+This folder contains results files for CC1.
