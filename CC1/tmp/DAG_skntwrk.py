@@ -47,9 +47,9 @@ tgt_node = 0
 #adj_matrix_array = np.array([[0,0,0,0.4,0,0], [0.1,0.5,0,0,0,0], [0.9,0,0,0,0,0], [0,0,1.0,0,1.0,0], [0,0.5,0,0,0,0], [0,0,0,0.6,0,1.0]]) # directed; cyclic; pos-weigted
 #adj_matrix_array = np.array([[0,0,0,-0.4,0,0], [0.1,0.5,0,0,0,0], [0.9,0,0,0,0,0], [0,0,1.0,0,1.0,0], [0,0.5,0,0,0,0], [0,0,0,0.6,0,1.0]]) # directed; cyclic; neg-weigted
 
-#adj_matrix_array = np.array([[0,0,0,0,0,0], [1,0,0,0,0,0], [0,1,0,0,0,0], [0,0,1,0,0,0], [0,0,1,1,0,0], [0,0,0,0,1,0]]) # directed; acyclic; un-weigted
+adj_matrix_array = np.array([[0,0,0,0,0,0], [1,0,0,0,0,0], [0,1,0,0,0,0], [0,0,1,0,0,0], [0,0,1,1,0,0], [0,0,0,0,1,0]]) # directed; acyclic; un-weigted
 #adj_matrix_array = np.array([[0,0,0,0,0,0], [0.9,0,0,0,0,0], [0,0.5,0,0,0,0], [0,0,1,0,0,0], [0,0,1,0.9,0,0], [0,0,0,0,0.2,0]]) # directed; acyclic; pos-weigted
-adj_matrix_array = np.array([[0,0,0,0,0,0], [0.9,0,0,0,0,0], [0,-0.5,0,0,0,0], [0,0,1,0,0,0], [0,0,1,0.9,0,0], [0,0,0,0,-0.9,0]]) # directed; acyclic; neg-weigted
+#adj_matrix_array = np.array([[0,0,0,0,0,0], [0.9,0,0,0,0,0], [0,-0.5,0,0,0,0], [0,0,1,0,0,0], [0,0,1,0.9,0,0], [0,0,0,0,-0.9,0]]) # directed; acyclic; neg-weigted
 
 #print(adj_matrix_array)
 #print(adj_matrix_array.shape)
@@ -84,9 +84,9 @@ weighted_edges = True if (num_of_pos_weights_not_ones > 0) or (num_of_neg_weight
 neg_weighted_edges = True if (num_of_neg_weights > 0) else False
 
 '''
-print("Num of Neg Ws: ", num_of_neg_weights)
-print("Num of Pos Ws (inc 1s): ", num_of_pos_weights)
-print("Num of Pos Ws (exc 1s): ", num_of_pos_weights_not_ones)
+print("Num of Neg Wts: ", num_of_neg_weights)
+print("Num of Pos Wts (inc 1s): ", num_of_pos_weights)
+print("Num of Pos Wts (exc 1s): ", num_of_pos_weights_not_ones)
 print("directed: ", directed)
 print("acyclic: ", acyclic)
 print("weighted: ", weighted_edges)
@@ -111,7 +111,7 @@ def GetDepthOfDAG():
                 print('\nThe provided graph is Directed Acyclic Graph (DAG) with weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
                 algorithm='J'
             else:
-                print('\nThe provided graph is Directed Acyclic Graph (DAG).\nThe edges appear to be un-weighted.\nEvaluating using Bellman-Ford algorithm:\n')
+                print('\nThe provided graph is Directed Acyclic Graph (DAG).\nThe edges appear to be un-weighted.\nEvaluating using Dijkstra\'s algorithm:\n')
                 algorithm='D'
         elif not acyclic:
             if neg_weighted_edges:
@@ -134,7 +134,7 @@ def GetDepthOfDAG():
             print('\nThe provided graph is an UN-Directed Graph (UDG) with cyclic nodes and un-weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
             algorithm='J'
         else:
-            print('\nThe cyclicity and weight of nodes and edges can not be determined of this provided Un-Directed Graph (DG).\nEvaluating using Johnson\'s algorithm:\n')
+            print('\nThe cyclicity and weight of nodes and edges can not be determined of this provided Un-Directed Graph (DG).\n')
             algorithm='J'
     else:
         print('\nHouston, we have a problem!\n')
@@ -143,7 +143,7 @@ def GetDepthOfDAG():
 
         shortest_path = get_shortest_path(adj_mat_sparse_csr, method=algorithm, sources=src_node, targets=tgt_node)
         print('The shortest path between', src_node, 'and', tgt_node, 'is', shortest_path)
-        print('The depth of target node [', tgt_node, '] is', len(shortest_path), '\n')
+        print('The depth of target node [',tgt_node,'] is', len(shortest_path), '\n')
 
     else:
         print('\nThe characterization of provided graph failed.\nExiting script\n')
