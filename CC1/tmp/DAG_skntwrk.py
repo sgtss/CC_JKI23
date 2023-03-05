@@ -19,6 +19,7 @@ import sknetwork as skn
 #from sknetwork.data import from_edge_list, from_adjacency_list, from_graphml, from_csv
 from sknetwork.utils.check import is_symmetric
 from sknetwork.topology import is_acyclic
+from sknetwork.path import get_shortest_path
 
 
 # Importing sknetwork and IPython libraries for visualization.
@@ -34,17 +35,17 @@ from IPython.display import SVG
 dag_adj_matrix = None
 
 # Root/source node of DAG matrix
-src_node = None
+src_node = 5
 
 # Target node of DAG matrix
-tgt_node = None
+tgt_node = 0
 
 # Test adjacency matrix(s); as 2D np_array
 #adj_matrix_array = np.array([[0,1,1,1,0,0], [1,1,0,0,1,0], [1,0,0,1,0,0], [1,0,1,0,1,1], [0,1,0,1,0,0], [0,0,0,1,0,1]]) # undirected; cyclic; un-weigted
 
 #adj_matrix_array = np.array([[0,0,0,1,0,0], [1,1,0,0,0,0], [1,0,0,0,0,0], [0,0,1,0,1,0], [0,1,0,0,0,0], [0,0,0,1,0,1]]) # directed; cyclic; un-weigted
 #adj_matrix_array = np.array([[0,0,0,0.4,0,0], [0.1,0.5,0,0,0,0], [0.9,0,0,0,0,0], [0,0,1.0,0,1.0,0], [0,0.5,0,0,0,0], [0,0,0,0.6,0,1.0]]) # directed; cyclic; pos-weigted
-#adj_matrix_array = np.array([[0,0,0,-0.4,0,0], [0.1,0.5,0,0,0,0], [0.9,0,0,0,0,0], [0,0,1.0,0,1.0,0], [0,0.5,0,0,0,0], [0,0,0,0.6,0,1.0]]) # directed; cyclic; weigted (neg)
+#adj_matrix_array = np.array([[0,0,0,-0.4,0,0], [0.1,0.5,0,0,0,0], [0.9,0,0,0,0,0], [0,0,1.0,0,1.0,0], [0,0.5,0,0,0,0], [0,0,0,0.6,0,1.0]]) # directed; cyclic; neg-weigted
 
 #adj_matrix_array = np.array([[0,0,0,0,0,0], [1,0,0,0,0,0], [0,1,0,0,0,0], [0,0,1,0,0,0], [0,0,1,1,0,0], [0,0,0,0,1,0]]) # directed; acyclic; un-weigted
 #adj_matrix_array = np.array([[0,0,0,0,0,0], [0.9,0,0,0,0,0], [0,0.5,0,0,0,0], [0,0,1,0,0,0], [0,0,1,0.9,0,0], [0,0,0,0,0.2,0]]) # directed; acyclic; pos-weigted
@@ -90,13 +91,66 @@ print("directed: ", directed)
 print("acyclic: ", acyclic)
 print("weighted: ", weighted_edges)
 '''
+# %% [markdown]
+#**TASK TWO:**
 
-if directed and acyclic and not weighted_edges:
-    print('The provided graph is Directed Acyclic Graph (DAG)')
-elif directed and acyclic and neg_weighted_edges:
-    print('The provided graph is Directed Acyclic Graph (DAG) with negative weighted edges')
-elif directed and acyclic and weighted_edges:
-    print('The provided graph is Directed Acyclic Graph (DAG) with weighted edges')
-else:
-    print('Houston, we have a problem')
+#Estimate depth of given node.
+# 
+# %% 
+
+def GetDepthOfDAG():
+
+    algorithm='none'  # BF: Bellman-Ford, D: Dijkstra’s with Fibonacci heaps, FW: Floyd-Warshall and J: Johnson’s algorithm
+
+    if directed:
+        if acyclic:
+            if neg_weighted_edges:
+                print('\nThe provided graph is Directed Acyclic Graph (DAG) with negative weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
+                algorithm='J'
+            elif weighted_edges:
+                print('\nThe provided graph is Directed Acyclic Graph (DAG) with weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
+                algorithm='J'
+            else:
+                print('\nThe provided graph is Directed Acyclic Graph (DAG).\nThe edges appear to be un-weighted.\nEvaluating using Bellman-Ford algorithm:\n')
+                algorithm='D'
+        elif not acyclic:
+            if neg_weighted_edges:
+                print('\nThe provided graph is Directed Graph (DG) with cyclic nodes and negative weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
+                algorithm='J'
+            elif weighted_edges:
+                print('\nThe provided graph is Directed Graph (DG) with cyclic nodes and weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
+                algorithm='J'
+            else:
+                print('\nThe provided graph is Directed Graph (DG) with cyclic nodes and un-weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
+                algorithm='J'
+        else:
+            print('\nThe cyclicity and weight of nodes and edges can not be determined of this provided Directed Graph (DG).\nEvaluating using Johnson\'s algorithm:\n')
+            algorithm='J'
+    elif not directed:
+        if acyclic:
+            print('\nThe provided graph is an UN-Directed Graph (UDG) with acyclic nodes and un-weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
+            algorithm='J'
+        elif not acyclic:
+            print('\nThe provided graph is an UN-Directed Graph (UDG) with cyclic nodes and un-weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
+            algorithm='J'
+        else:
+            print('\nThe cyclicity and weight of nodes and edges can not be determined of this provided Un-Directed Graph (DG).\nEvaluating using Johnson\'s algorithm:\n')
+            algorithm='J'
+    else:
+        print('\nHouston, we have a problem!\n')
+
+    if algorithm != 'none' and len(adj_matrix_array) > 0:
+
+        shortest_path = get_shortest_path(adj_mat_sparse_csr, method=algorithm, sources=src_node, targets=tgt_node)
+        print('The shortest path between', src_node, 'and', tgt_node, 'is', shortest_path)
+        print('The depth of target node [', tgt_node, '] is', len(shortest_path), '\n')
+
+    else:
+        print('\nThe characterization of provided graph failed.\nExiting script\n')
+
+    return
+
+GetDepthOfDAG()
+
+
 
