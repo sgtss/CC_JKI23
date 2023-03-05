@@ -1,1 +1,1 @@
-This folder contains temporary data for testing purpose only.
+This folder contains temporary data for code DEVOPS and testing purpose only.
