@@ -79,11 +79,24 @@ adj_mat_sparse_csr = sparse.csr_matrix(adj_matrix_array)                        
 
 directed = False if is_symmetric(adj_mat_sparse_csr) else True      # Symmmetric adjacent matrix must be undirected
 acyclic = is_acyclic(adj_mat_sparse_csr)                            # adjacent matrix diagonal containing only zeros muust have no cycles
-weighted = True if (num_of_pos_weights_not_ones > 0) or (num_of_neg_weights > 0) else False
+weighted_edges = True if (num_of_pos_weights_not_ones > 0) or (num_of_neg_weights > 0) else False
+neg_weighted_edges = True if (num_of_neg_weights > 0) else False
 
+'''
 print("Num of Neg Ws: ", num_of_neg_weights)
 print("Num of Pos Ws (inc 1s): ", num_of_pos_weights)
 print("Num of Pos Ws (exc 1s): ", num_of_pos_weights_not_ones)
 print("directed: ", directed)
 print("acyclic: ", acyclic)
-print("weighted: ", weighted)
+print("weighted: ", weighted_edges)
+'''
+
+if directed and acyclic and not weighted_edges:
+    print('The provided graph is Directed Acyclic Graph (DAG)')
+elif directed and acyclic and neg_weighted_edges:
+    print('The provided graph is Directed Acyclic Graph (DAG) with negative weighted edges')
+elif directed and acyclic and weighted_edges:
+    print('The provided graph is Directed Acyclic Graph (DAG) with weighted edges')
+else:
+    print('Houston, we have a problem')
+
