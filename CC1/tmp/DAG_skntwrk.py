@@ -5,12 +5,16 @@
 
 # **Challenge One - Basic algorithms**
 #
-# Importing numpy to hold adjancy matrix as nxn dense array and convert into sparse matrix in Compressed Sparse Row format of SciPy.
+# Importing numpy to hold adjancy matrix as nxn dense array and converting into sparse matrix in Compressed Sparse Row format of SciPy.
 # For large graphs, use adjacency_list, edge_list or graphml. Or import and process dataframe from t/csv using pandas.
 # For pre-existing datasets, try NetSet and Konect.
 
 # %%
+# Importing argparse to check args and file
+import sys, argparse
+
 import numpy as np
+from numpy import genfromtxt
 from scipy import sparse
 #import pandas as pd
 
@@ -21,43 +25,48 @@ from sknetwork.utils.check import is_symmetric
 from sknetwork.topology import is_acyclic
 from sknetwork.path import get_shortest_path
 
-
 # Importing sknetwork and IPython libraries for visualization.
-from sknetwork.visualization import svg_graph
-from IPython.display import SVG
-
-# %% [markdown]
-
-# Setting up core functionality
+#from sknetwork.visualization import svg_graph
+#from IPython.display import SVG
 
 # %%
-# Provided DAG matrix
-dag_adj_matrix = None
+# Initializing default input parametersy
+adj_matrix_array = None     # Provided DAG matrix
+src_node = 5                # Root/source node of DAG matrix
+tgt_node = 0                # Target node of DAG matrix
 
-# Root/source node of DAG matrix
-src_node = 5
+# Stores text for instructions
+INFO_ARG1 = "path to TAB/Comma seperated file with Adjacency matrix, for eg. data/sample1.tsv"
+INFO_ARG2 = "Root/Source node of Adjacency matrix"
+INFO_ARG3 = "Destination/target node of Adjacency matrix"
 
-# Target node of DAG matrix
-tgt_node = 0
+# Parse arguments and validate
+argParser = argparse.ArgumentParser()
+argParser.add_argument('-i', dest='input_file', help=INFO_ARG1, type=argparse.FileType('r', encoding='utf-8'), metavar='Input', required=True)
+argParser.add_argument('-s', dest='input_src_node', type=int, help=INFO_ARG2, metavar='Source', required=True)
+argParser.add_argument('-t', dest='input_tgt_node', type=int, help=INFO_ARG3, metavar='Target', required=True)
+args = argParser.parse_args()
 
-# Test adjacency matrix(s); as 2D np_array
-#adj_matrix_array = np.array([[0,1,1,1,0,0], [1,1,0,0,1,0], [1,0,0,1,0,0], [1,0,1,0,1,1], [0,1,0,1,0,0], [0,0,0,1,0,1]]) # undirected; cyclic; un-weigted
-
-#adj_matrix_array = np.array([[0,0,0,1,0,0], [1,1,0,0,0,0], [1,0,0,0,0,0], [0,0,1,0,1,0], [0,1,0,0,0,0], [0,0,0,1,0,1]]) # directed; cyclic; un-weigted
-#adj_matrix_array = np.array([[0,0,0,0.4,0,0], [0.1,0.5,0,0,0,0], [0.9,0,0,0,0,0], [0,0,1.0,0,1.0,0], [0,0.5,0,0,0,0], [0,0,0,0.6,0,1.0]]) # directed; cyclic; pos-weigted
-#adj_matrix_array = np.array([[0,0,0,-0.4,0,0], [0.1,0.5,0,0,0,0], [0.9,0,0,0,0,0], [0,0,1.0,0,1.0,0], [0,0.5,0,0,0,0], [0,0,0,0.6,0,1.0]]) # directed; cyclic; neg-weigted
-
-adj_matrix_array = np.array([[0,0,0,0,0,0], [1,0,0,0,0,0], [0,1,0,0,0,0], [0,0,1,0,0,0], [0,0,1,1,0,0], [0,0,0,0,1,0]]) # directed; acyclic; un-weigted
-#adj_matrix_array = np.array([[0,0,0,0,0,0], [0.9,0,0,0,0,0], [0,0.5,0,0,0,0], [0,0,1,0,0,0], [0,0,1,0.9,0,0], [0,0,0,0,0.2,0]]) # directed; acyclic; pos-weigted
-#adj_matrix_array = np.array([[0,0,0,0,0,0], [0.9,0,0,0,0,0], [0,-0.5,0,0,0,0], [0,0,1,0,0,0], [0,0,1,0.9,0,0], [0,0,0,0,-0.9,0]]) # directed; acyclic; neg-weigted
+# Updating input arguments
+adj_matrix_array = genfromtxt(args.input_file, delimiter=',')
+src_node = args.input_src_node
+tgt_node = args.input_tgt_node
 
 #print(adj_matrix_array)
 #print(adj_matrix_array.shape)
+#print(type(adj_matrix_array))
+
+# Intial checks to determine if adjacent matrix of DAG contains weighted edges
+# Negative cycles can lead to aberant results with Dijkstra’s algorithm
 
 # Store number of Positive/Negative weights of given adj_matrix_array 
 num_of_pos_weights_not_ones = np.count_nonzero((adj_matrix_array > 0) & (adj_matrix_array != 1))    # adjacent matrix of DAG containing positive weights other than ones must be weighted
 num_of_pos_weights = np.count_nonzero(adj_matrix_array > 0)                                         # positive weights in adjacent matrix of undirected graph represent edges
 num_of_neg_weights = np.count_nonzero(adj_matrix_array < 0)                                         # adjacent matrix containing negative weights must be weighted
+
+#print("Num of Neg Wts: ", num_of_neg_weights)
+#print("Num of Pos Wts (inc 1s): ", num_of_pos_weights)
+#print("Num of Pos Wts (exc 1s): ", num_of_pos_weights_not_ones)
 
 # convert nxn array to sparse matrix in CSR formmat
 adj_mat_sparse_csr = sparse.csr_matrix(adj_matrix_array)                                            # especially efficient with large data sets
@@ -77,31 +86,36 @@ adj_mat_sparse_csr = sparse.csr_matrix(adj_matrix_array)                        
 # 3) weighted and/or contains -ve weights
 
 # %%
-
+# setting up booleans to be used later to select best performing algorithms
 directed = False if is_symmetric(adj_mat_sparse_csr) else True      # Symmmetric adjacent matrix must be undirected
 acyclic = is_acyclic(adj_mat_sparse_csr)                            # adjacent matrix diagonal containing only zeros muust have no cycles
 weighted_edges = True if (num_of_pos_weights_not_ones > 0) or (num_of_neg_weights > 0) else False
 neg_weighted_edges = True if (num_of_neg_weights > 0) else False
 
-'''
-print("Num of Neg Wts: ", num_of_neg_weights)
-print("Num of Pos Wts (inc 1s): ", num_of_pos_weights)
-print("Num of Pos Wts (exc 1s): ", num_of_pos_weights_not_ones)
-print("directed: ", directed)
-print("acyclic: ", acyclic)
-print("weighted: ", weighted_edges)
-'''
+#print("directed: ", directed)
+#print("acyclic: ", acyclic)
+#print("weighted: ", weighted_edges)
+
 # %% [markdown]
 #**TASK TWO:**
 
-#Estimate depth of given node.
+# Estimating depth (number of edges from given root) of given node.
+# Step 1: Select best suited algorithm based on directness, cyclicity and weight of edges.
+# Step 2: Find shortest path fron node [n] to root [r].
+# Step 3: Count number of edges in the shortest path.
 # 
 # %% 
-
+# Function to return depth of given node [n: tgt_node] to root node [r: source node] in given DAG as adjency matrix [dag_adj_matrix]
+# However, adjency matrix [dag_adj_matrix] is converted into sparse matrix earlier [adj_mat_sparse_csr] and this function actually uses it
+# suitable algorithm is selected based on above defined characteristics of above adjency matrix
+# now works with non-DAG matrices as well
 def GetDepthOfDAG():
 
-    algorithm='none'  # BF: Bellman-Ford, D: Dijkstra’s with Fibonacci heaps, FW: Floyd-Warshall and J: Johnson’s algorithm
+    # intitalizing with none, value is updated based on characteristcs 
+    # BF: Bellman-Ford, D: Dijkstra’s with Fibonacci heaps, FW: Floyd-Warshall and J: Johnson’s algorithm
+    algorithm='none'  
 
+    # if/else loop checking characteristics
     if directed:
         if acyclic:
             if neg_weighted_edges:
@@ -137,10 +151,13 @@ def GetDepthOfDAG():
             print('\nThe cyclicity and weight of nodes and edges can not be determined of this provided Un-Directed Graph (DG).\n')
             algorithm='J'
     else:
-        print('\nHouston, we have a problem!\n')
+        print('\nHouston, we have a problem!\n')    # maybe something went wrong in capturing adjency matrix
 
+    # If capturing adjency matrix went ok
     if algorithm != 'none' and len(adj_matrix_array) > 0:
 
+        # Find shortest path using sknetwork built-in function
+        # based on SciPy (scipy.sparse.csgraph.shortest_path) 
         shortest_path = get_shortest_path(adj_mat_sparse_csr, method=algorithm, sources=src_node, targets=tgt_node)
         print('The shortest path between', src_node, 'and', tgt_node, 'is', shortest_path)
         print('The depth of target node [',tgt_node,'] is', len(shortest_path), '\n')
@@ -151,6 +168,3 @@ def GetDepthOfDAG():
     return
 
 GetDepthOfDAG()
-
-
-
