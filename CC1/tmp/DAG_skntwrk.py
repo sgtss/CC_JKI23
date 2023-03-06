@@ -35,17 +35,25 @@ adj_matrix_array = None     # Provided DAG matrix
 src_node = 5                # Root/source node of DAG matrix
 tgt_node = 0                # Target node of DAG matrix
 
-# Stores text for instructions
-INFO_ARG1 = "path to TAB/Comma seperated file with Adjacency matrix, for eg. data/sample1.tsv"
-INFO_ARG2 = "Root/Source node of Adjacency matrix"
-INFO_ARG3 = "Destination/target node of Adjacency matrix"
+# process invocation cmd args
+def getArgs():
 
-# Parse arguments and validate
-argParser = argparse.ArgumentParser()
-argParser.add_argument('-i', dest='input_file', help=INFO_ARG1, type=argparse.FileType('r', encoding='utf-8'), metavar='Input', required=True)
-argParser.add_argument('-s', dest='input_src_node', type=int, help=INFO_ARG2, metavar='Source', required=True)
-argParser.add_argument('-t', dest='input_tgt_node', type=int, help=INFO_ARG3, metavar='Target', required=True)
-args = argParser.parse_args()
+    # Stores text for instructions
+    INFO_ARG1 = "path to TAB/Comma seperated file with Adjacency matrix, for eg. data/sample1.tsv"
+    INFO_ARG2 = "Root/Source node of Adjacency matrix"
+    INFO_ARG3 = "Destination/target node of Adjacency matrix"
+
+    # Parse arguments and validate
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', dest='input_file', help=INFO_ARG1, type=argparse.FileType('r', encoding='utf-8'), metavar='Input', required=True)
+    parser.add_argument('-s', dest='input_src_node', type=int, help=INFO_ARG2, metavar='Source', required=True)
+    parser.add_argument('-t', dest='input_tgt_node', type=int, help=INFO_ARG3, metavar='Target', required=True)
+    #args = parser.parse_args()
+    return parser.parse_args()
+
+args = getArgs()
+
+#print(args.input_file)
 
 # Updating input arguments
 adj_matrix_array = genfromtxt(args.input_file, delimiter=',')
@@ -116,40 +124,40 @@ def GetDepthOfDAG():
     algorithm='none'  
 
     # if/else loop checking characteristics
-    if directed:
-        if acyclic:
+    if directed:                    # is directed graph
+        if acyclic:                 # is directed acylic graph
             if neg_weighted_edges:
                 print('\nThe provided graph is Directed Acyclic Graph (DAG) with negative weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
-                algorithm='J'
+                algorithm='J'       # is neg-weighted dag; dont use D
             elif weighted_edges:
                 print('\nThe provided graph is Directed Acyclic Graph (DAG) with weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
-                algorithm='J'
+                algorithm='J'       # is weighted dag; neg weights would have been caught above, can use D, but J appears to be faster
             else:
                 print('\nThe provided graph is Directed Acyclic Graph (DAG).\nThe edges appear to be un-weighted.\nEvaluating using Dijkstra\'s algorithm:\n')
-                algorithm='D'
-        elif not acyclic:
+                algorithm='D'       # is un-weighted dag; can use D, but J appears to be faster
+        elif not acyclic:           # detected pos/neg cycles in graph
             if neg_weighted_edges:
                 print('\nThe provided graph is Directed Graph (DG) with cyclic nodes and negative weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
-                algorithm='J'
+                algorithm='J'       # is neg-weighted dcg; dont use D, may raise neg-cycle error, J is safer
             elif weighted_edges:
                 print('\nThe provided graph is Directed Graph (DG) with cyclic nodes and weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
-                algorithm='J'
+                algorithm='J'       # is weighted dcg;  J appears to be consistent and faster
             else:
                 print('\nThe provided graph is Directed Graph (DG) with cyclic nodes and un-weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
-                algorithm='J'
+                algorithm='J'       # is un-weighted dcg; self cycles may pop up, use J to be safe
         else:
             print('\nThe cyclicity and weight of nodes and edges can not be determined of this provided Directed Graph (DG).\nEvaluating using Johnson\'s algorithm:\n')
-            algorithm='J'
-    elif not directed:
-        if acyclic:
+            algorithm='J'           # may be multi-graph or typos or formatting errors; use J to be safe
+    elif not directed:              # is un-directed graph
+        if acyclic:                 # no cycles detected
             print('\nThe provided graph is an UN-Directed Graph (UDG) with acyclic nodes and un-weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
-            algorithm='J'
+            algorithm='J'           # J and BF can be used, FW is too slow
         elif not acyclic:
             print('\nThe provided graph is an UN-Directed Graph (UDG) with cyclic nodes and un-weighted edges.\nEvaluating using Johnson\'s algorithm:\n')
-            algorithm='J'
+            algorithm='J'           # J appears to be better
         else:
             print('\nThe cyclicity and weight of nodes and edges can not be determined of this provided Un-Directed Graph (DG).\n')
-            algorithm='J'
+            algorithm='J'           # again J appears to be faster
     else:
         print('\nHouston, we have a problem!\n')    # maybe something went wrong in capturing adjency matrix
 
