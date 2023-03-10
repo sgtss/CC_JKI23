@@ -1,2 +1,4 @@
 /.env.development
-/CC2/tmp/sample_data
+/CC1/tmp/
+/CC2/tmp/
+/CC3/tmp/
