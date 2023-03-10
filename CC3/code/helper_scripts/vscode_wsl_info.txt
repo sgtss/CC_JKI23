@@ -1,0 +1,19 @@
+#
+# R
+#
+
+# better install with conda
+conda install -c conda-forge r-base=4.2.2
+
+#
+# royfrancis/pophelper
+#
+
+# extra OS specific dependencies
+sudo apt install -y libfreetype6-dev libcurl4-openssl-dev libssl-dev libxml2-dev libnlopt-dev
+
+# install dependencies
+install.packages(c("ggplot2","gridExtra","label.switching","tidyr","remotes"),repos="https://cloud.r-project.org")
+
+# install pophelper package from GitHub
+remotes::install_github('royfrancis/pophelper')
