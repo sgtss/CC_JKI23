@@ -1,1 +1,2 @@
-2023-03-11 21:42:33 URL: ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_refseq.txt [90503381] -> "/home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/data/downloads/assembly_summary_refseq.txt" [1]
+2023-03-11 23:18:32 URL: ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/020/025/GCF_000020025.1_ASM2002v1/*_protein.faa.gz [1649] -> "/home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/data/downloads/.listing" [1]
+2023-03-11 23:18:33 URL: ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/020/025/GCF_000020025.1_ASM2002v1/GCF_000020025.1_ASM2002v1_protein.faa.gz [1510522] -> "/home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/data/downloads/GCF_000020025.1_ASM2002v1_protein.faa.gz" [1]

@@ -94,6 +94,7 @@ sub_asmb_id = args.sn
 sub_fasta_loc = args.sf
 seq_type = args.t
 query_no = args.q
+
 #print('after assignment', ref_org_name, ref_asmb_id, ref_fasta_loc, sub_org_name, sub_asmb_id, sub_fasta_loc, seq_type, query_no)
 
 
@@ -128,7 +129,7 @@ def find_ftp_link(col, qvalue):
 # requires dnd_dir as path to download dir
 # required ftp_path as NCBI path to file
 # requires rw as file rewite flag
-def dnd_files(tgt_dir, ftp_path):
+def download_files_NCBI(tgt_dir, ftp_path):
 
     global dnd_file_path                # TODO not the optimal way; DEBUG REQUIRED
 
@@ -153,6 +154,14 @@ def dnd_files(tgt_dir, ftp_path):
         elif len(Lines) == 1: print('NCBI REFSEQ assembly info file is updated')
         else: print('wget failed for some reason')
         lf.close()
+
+# this function unpacks and updates file paths for REF and SUB files
+def process_downloaded_files(file_path):
+
+    global ref_fasta_loc, sub_fasta_loc
+
+    #downloading fasta files, not overwrting as need it for fire path
+    subprocess.run(['gunzip', '-k', file_path], check=True)
 
 # process user input to download seq data
 def get_data(id, name, n):
@@ -179,15 +188,17 @@ def get_data(id, name, n):
                 if n == 1: 
                     #print('Saving as ref')                 # save as ref seq file
                     # download NCBI REFSEQ assembly info file
-                    dnd_files(dnd_dir, refseq_ftp)
-                    ref_fasta_loc = dnd_file_path
+                    download_files_NCBI(dnd_dir, refseq_ftp)
+                    process_downloaded_files(dnd_file_path)
+                    ref_fasta_loc = dnd_file_path[:-3]
                     print('Succesfully downloaded REF fasta file :', ref_fasta_loc)
 
                 elif n == 2: 
                     #print('saving as sub')                 # save as sub seq file
                     # download NCBI REFSEQ assembly info file
-                    dnd_files(dnd_dir, refseq_ftp)
-                    sub_fasta_loc = dnd_file_path
+                    download_files_NCBI(dnd_dir, refseq_ftp)
+                    process_downloaded_files(dnd_file_path)
+                    sub_fasta_loc = dnd_file_path[:-3]
                     print('Succesfully downloaded SUB fasta file :', sub_fasta_loc)
 
                 else: print('neither')
@@ -202,7 +213,7 @@ def get_data(id, name, n):
             print('Houston, the problem just got bigger')
 
         return
-
+    
 # find RBHs using mmseqs2
 def run_mmseqs_easy():
 
@@ -215,12 +226,6 @@ def run_mmseqs_easy():
         mlf.close()
 # execute         
 #run_mmseqs_easy()
-
-# execute 
-# 
-
-#ref_fasta_loc = args.rf
-#sub_fasta_loc = args.sf
 
 # clean download dir
 def housekeeping():
@@ -236,7 +241,7 @@ housekeeping()
 
 # download NCBI REFSEQ assembly info file
 print('Downloading NCBI REFSEQ assembly info file')              # user prompt
-dnd_files(dnd_dir, refseq_asmb_info_ftp)
+download_files_NCBI(dnd_dir, refseq_asmb_info_ftp)
 
 if ref_org_name != 'none' or ref_asmb_id != 'none' :
     get_data(ref_asmb_id, ref_org_name, 1)
