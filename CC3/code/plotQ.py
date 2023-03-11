@@ -43,4 +43,3 @@ AvsQ_plot.spines[['top', 'left', 'right']].set_visible(False)
 
 # Save plot as pdf
 AvsQ_plot.figure.savefig(pfile, bbox_inches='tight')                        # saving plot as .pdf file
-
