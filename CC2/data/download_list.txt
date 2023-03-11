@@ -1,0 +1,2 @@
+https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/Nostoc_flagelliforme/latest_assembly_versions/GCF_002813575.1_ASM281357v1/GCF_002813575.1_ASM281357v1_protein.faa.gz
+https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/Nostoc_punctiforme/latest_assembly_versions/GCF_000020025.1_ASM2002v1/GCF_000020025.1_ASM2002v1_protein.faa.gz

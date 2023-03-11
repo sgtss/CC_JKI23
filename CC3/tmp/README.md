@@ -1,1 +1,0 @@
-This folder contains temporary data for testing purpose only.

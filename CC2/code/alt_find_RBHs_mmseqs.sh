@@ -22,13 +22,6 @@ ARG1: Path of file containg list of links to download sequence files (can be AA 
 ARG2: Path to .fasta file of Reference organism, for eg. 
 /home/user/folder/reference.fasta 
 
-OR
-
-ftp/http link from NCBI etc for eg. 
-ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/Nostoc_flagelliforme/latest_assembly_versions/GCF_002813575.1_ASM281357v1/GCF_002813575.1_ASM281357v1_genomic.fna.gz
-https://ftp.ncbi.nlm.nih.gov/genomes/refseq/bacteria/Nostoc_flagelliforme/latest_assembly_versions/GCF_002813575.1_ASM281357v1/GCF_002813575.1_ASM281357v1_genomic.fna.gz
-
-
 ARG3: Path to .fasta file of Subject organism, for eg. same as above  
 
 ###############################################################################
@@ -47,8 +40,8 @@ CURRENT_DIR="$(pwd)"                            # Store current dir in VARIABLE
 #printf "$BASE"
 
 BASE_DIR="CC_JKI23/CC2"
-WORK_DIR="shortcuts/mmseqs"
-DATA_DIR="data/downloads/prot_seqs"
+#WORK_DIR="alt_mmseqs"
+DATA_DIR="data/mmseqs_data"
 RESULTS_DIR="results"
 TMP_DIR="tmp"
 
@@ -60,26 +53,17 @@ REF_FILE="REF_Nostoc_flagelliforme_CCNUN1.faa"
 SUBJT_FILE="SUBJ_Nostoc_punctiforme_PCC_73102.faa"
 QUERY_FILE="Ex100_SUBJ_Nostoc_punctiforme_PCC_73102.faa"
 
+mkdir -p $BASE_DIR/$DATA_DIR
+mkdir -p $BASE_DIR/$DATA_DIR/$TMP_DIR
 
+cd $BASE_DIR
 
-#mkdir -p $BASE_DIR/$WORK_DIR/$DATA_DIR
-#mkdir -p $BASE_DIR/$WORK_DIR/$RESULTS_DIR/$TMP_DIR
+wget -P $DATA_DIR/$TMP_DIR/ -i $DATA_DIR/download_list.txt
 
-#cd $BASE_DIR
-
-
-# https://www.webhostface.com/kb/knowledgebase/examples-using-wget/
-#wget -P sample_data/ -i /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/sample_data/download_list.txt
-
-# https://ro-che.info/articles/2016-08-23-fasta-first-n-sequences
 # pick first n seqs from file
-# awk "/^>/ {n++} n>$NSEQS {exit} {print}" $DATA_DIR/$SUBJT_FILE > $DATA_DIR/$QUERY_FILE
+awk "/^>/ {n++} n>$NSEQS {exit} {print}" $DATA_DIR/$SUBJT_FILE > $DATA_DIR/$QUERY_FILE
 
 # mmseqs2 easy-rbh
 # mmseqs easy-rbh Aproteins.fasta Bproteins.fasta ABrbh tmp
-# mmseqs easy-rbh $DATA_DIR/$REF_FILE $DATA_DIR/$QUERY_FILE $DATA_DIR/Ex100_Rbh.tsv $DATA_DIR/tmp
-# mmseqs easy-rbh $DATA_DIR/$REF_FILE $DATA_DIR/$SUBJT_FILE $DATA_DIR/All_Rbh.tsv $DATA_DIR/tmp
-
-
-
-
+mmseqs easy-rbh $DATA_DIR/$REF_FILE $DATA_DIR/$QUERY_FILE $DATA_DIR/Ex100_Rbh.tsv $DATA_DIR/tmp
+mmseqs easy-rbh $DATA_DIR/$REF_FILE $DATA_DIR/$SUBJT_FILE $DATA_DIR/All_Rbh.tsv $DATA_DIR/tmp
