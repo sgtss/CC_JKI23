@@ -6,4 +6,4 @@ CC1: Challenge One - Basic algorithms
 CC2: Challenge Two - Applied bioinformatics
 CC3: Challenge Three - Data visualization and interpretation
 
-A conda enviornment is provided to ensuure code reproducibility. 
+A conda enviornment will be provided to ensuure code reproducibility. 
