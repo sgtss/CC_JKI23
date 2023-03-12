@@ -123,7 +123,7 @@ Time for merging to query: 0h 0m 0s 0ms
 Time for merging to query_h: 0h 0m 0s 0ms
 Time for merging to query: 0h 0m 0s 0ms
 Database type: Aminoacid
-Time for processing: 0h 0m 0s 14ms
+Time for processing: 0h 0m 0s 10ms
 createdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/data/Ex100_sub.faa /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target --dbtype 0 --shuffle 1 --createdb-mode 0 --write-lookup 0 --id-offset 0 --compressed 0 -v 3 
 
 Converting sequences
@@ -131,24 +131,24 @@ Converting sequences
 Time for merging to target_h: 0h 0m 0s 1ms
 Time for merging to target: 0h 0m 0s 1ms
 Database type: Aminoacid
-Time for processing: 0h 0m 0s 4ms
+Time for processing: 0h 0m 0s 6ms
 Create directory /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp
 rbh /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/result /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp --alignment-mode 3 -s 5.7 --remove-tmp-files 1 
 
-Create directory /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempAB
-search /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resAB /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempAB --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.001 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 0 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 8 --compressed 0 -v 3 --seed-sub-mat 'aa:VTML80.out,nucl:nucleotide.out' -s 5.7 -k 0 --k-score seq:2147483647,prof:2147483647 --alph-size aa:21,nucl:5 --max-seqs 300 --split 0 --split-mode 2 --split-memory-limit 0 --diag-score 1 --exact-kmer-matching 0 --mask 0 --mask-prob 0.9 --mask-lower-case 0 --min-ungapped-score 15 --spaced-kmer-mode 1 --rescore-mode 0 --filter-hits 0 --sort-results 0 --mask-profile 1 --e-profile 0.001 --wg 0 --allow-deletion 0 --filter-msa 1 --filter-min-enable 0 --max-seq-id 0.9 --qid '0.0' --qsc -20 --cov 0 --diff 1000 --pseudo-cnt-mode 0 --gap-pc 10 --min-length 10 --max-length 32734 --max-gaps 2147483647 --contig-start-mode 2 --contig-end-mode 2 --orf-start-mode 1 --forward-frames 1,2,3 --reverse-frames 1,2,3 --translation-table 1 --translate 0 --use-all-table-starts 0 --id-offset 0 --create-lookup 0 --add-orf-stop 0 --sequence-overlap 0 --sequence-split-mode 1 --headers-split-mode 0 --chain-alignments 0 --merge-query 1 --search-type 0 --num-iterations 1 --start-sens 4 --sens-steps 1 --exhaustive-search 0 --exhaustive-search-filter 0 --strand 1 --lca-search 0 --disk-space-limit 0 --force-reuse 0 --remove-tmp-files 1 
+Create directory /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempAB
+search /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resAB /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempAB --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.001 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 0 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 8 --compressed 0 -v 3 --seed-sub-mat 'aa:VTML80.out,nucl:nucleotide.out' -s 5.7 -k 0 --k-score seq:2147483647,prof:2147483647 --alph-size aa:21,nucl:5 --max-seqs 300 --split 0 --split-mode 2 --split-memory-limit 0 --diag-score 1 --exact-kmer-matching 0 --mask 0 --mask-prob 0.9 --mask-lower-case 0 --min-ungapped-score 15 --spaced-kmer-mode 1 --rescore-mode 0 --filter-hits 0 --sort-results 0 --mask-profile 1 --e-profile 0.001 --wg 0 --allow-deletion 0 --filter-msa 1 --filter-min-enable 0 --max-seq-id 0.9 --qid '0.0' --qsc -20 --cov 0 --diff 1000 --pseudo-cnt-mode 0 --gap-pc 10 --min-length 10 --max-length 32734 --max-gaps 2147483647 --contig-start-mode 2 --contig-end-mode 2 --orf-start-mode 1 --forward-frames 1,2,3 --reverse-frames 1,2,3 --translation-table 1 --translate 0 --use-all-table-starts 0 --id-offset 0 --create-lookup 0 --add-orf-stop 0 --sequence-overlap 0 --sequence-split-mode 1 --headers-split-mode 0 --chain-alignments 0 --merge-query 1 --search-type 0 --num-iterations 1 --start-sens 4 --sens-steps 1 --exhaustive-search 0 --exhaustive-search-filter 0 --strand 1 --lca-search 0 --disk-space-limit 0 --force-reuse 0 --remove-tmp-files 1 
 
-prefilter /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempAB/2008387179565004545/pref_0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' --seed-sub-mat 'aa:VTML80.out,nucl:nucleotide.out' -k 0 --k-score seq:2147483647,prof:2147483647 --alph-size aa:21,nucl:5 --max-seq-len 65535 --max-seqs 300 --split 0 --split-mode 2 --split-memory-limit 0 -c 0 --cov-mode 0 --comp-bias-corr 0 --comp-bias-corr-scale 1 --diag-score 1 --exact-kmer-matching 0 --mask 0 --mask-prob 0.9 --mask-lower-case 0 --min-ungapped-score 15 --add-self-matches 0 --spaced-kmer-mode 1 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --threads 8 --compressed 0 -v 3 -s 5.7 
+prefilter /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempAB/18057471225311986059/pref_0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' --seed-sub-mat 'aa:VTML80.out,nucl:nucleotide.out' -k 0 --k-score seq:2147483647,prof:2147483647 --alph-size aa:21,nucl:5 --max-seq-len 65535 --max-seqs 300 --split 0 --split-mode 2 --split-memory-limit 0 -c 0 --cov-mode 0 --comp-bias-corr 0 --comp-bias-corr-scale 1 --diag-score 1 --exact-kmer-matching 0 --mask 0 --mask-prob 0.9 --mask-lower-case 0 --min-ungapped-score 15 --add-self-matches 0 --spaced-kmer-mode 1 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --threads 8 --compressed 0 -v 3 -s 5.7 
 
 Query database size: 8443 type: Aminoacid
 Estimated memory consumption: 978M
 Target database size: 100 type: Aminoacid
 Index table k-mer threshold: 112 at k-mer size 6 
 Index table: counting k-mers
-[=================================================================] 100 0s 4ms
+[=================================================================] 100 0s 3ms
 Index table: Masked residues: 0
 Index table: fill
-[=================================================================] 100 0s 7ms
+[=================================================================] 100 0s 8ms
 Index statistics
 Entries:          36879
 DB size:          488 MB
@@ -164,14 +164,14 @@ Top 10 k-mers
     YKVLAD	2
     KLALED	2
     EGRALE	2
-Time for index table init: 0h 0m 0s 304ms
+Time for index table init: 0h 0m 0s 306ms
 Process prefiltering step 1 of 1
 
 k-mer similarity threshold: 112
 Starting prefiltering scores calculation (step 1 of 1)
 Query db start 1 to 8443
 Target db start 1 to 100
-[=================================================================] 8.44K 4s 452ms
+[=================================================================] 8.44K 4s 672ms
 
 315.357801 k-mers per position
 56 DB matches per sequence
@@ -181,35 +181,35 @@ Target db start 1 to 100
 0 median result list length
 5551 sequences with 0 size result lists
 Time for merging to pref_0: 0h 0m 0s 2ms
-Time for processing: 0h 0m 5s 248ms
-align /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempAB/2008387179565004545/pref_0 /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resAB --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.001 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 0 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 8 --compressed 0 -v 3 
+Time for processing: 0h 0m 5s 540ms
+align /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempAB/18057471225311986059/pref_0 /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resAB --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.001 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 0 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 8 --compressed 0 -v 3 
 
 Compute score, coverage and sequence identity
 Query database size: 8443 type: Aminoacid
 Target database size: 100 type: Aminoacid
 Calculation of alignments
-[=================================================================] 8.44K 0s 125ms
+[=================================================================] 8.44K 0s 128ms
 Time for merging to resAB: 0h 0m 0s 2ms
 4259 alignments calculated
 743 sequence pairs passed the thresholds (0.174454 of overall calculated)
 0.088002 hits per query sequence
-Time for processing: 0h 0m 0s 132ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempAB/2008387179565004545/pref_0 -v 3 
+Time for processing: 0h 0m 0s 134ms
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempAB/18057471225311986059/pref_0 -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempAB/2008387179565004545/aln_0 -v 3 
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempAB/18057471225311986059/aln_0 -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempAB/2008387179565004545/input_0 -v 3 
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempAB/18057471225311986059/input_0 -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempAB/2008387179565004545/aln_merge -v 3 
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempAB/18057471225311986059/aln_merge -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-Create directory /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempBA
-search /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resBA /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempBA --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.001 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 0 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 8 --compressed 0 -v 3 --seed-sub-mat 'aa:VTML80.out,nucl:nucleotide.out' -s 5.7 -k 0 --k-score seq:2147483647,prof:2147483647 --alph-size aa:21,nucl:5 --max-seqs 300 --split 0 --split-mode 2 --split-memory-limit 0 --diag-score 1 --exact-kmer-matching 0 --mask 0 --mask-prob 0.9 --mask-lower-case 0 --min-ungapped-score 15 --spaced-kmer-mode 1 --rescore-mode 0 --filter-hits 0 --sort-results 0 --mask-profile 1 --e-profile 0.001 --wg 0 --allow-deletion 0 --filter-msa 1 --filter-min-enable 0 --max-seq-id 0.9 --qid '0.0' --qsc -20 --cov 0 --diff 1000 --pseudo-cnt-mode 0 --gap-pc 10 --min-length 10 --max-length 32734 --max-gaps 2147483647 --contig-start-mode 2 --contig-end-mode 2 --orf-start-mode 1 --forward-frames 1,2,3 --reverse-frames 1,2,3 --translation-table 1 --translate 0 --use-all-table-starts 0 --id-offset 0 --create-lookup 0 --add-orf-stop 0 --sequence-overlap 0 --sequence-split-mode 1 --headers-split-mode 0 --chain-alignments 0 --merge-query 1 --search-type 0 --num-iterations 1 --start-sens 4 --sens-steps 1 --exhaustive-search 0 --exhaustive-search-filter 0 --strand 1 --lca-search 0 --disk-space-limit 0 --force-reuse 0 --remove-tmp-files 1 
+Create directory /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempBA
+search /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resBA /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempBA --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.001 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 0 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 8 --compressed 0 -v 3 --seed-sub-mat 'aa:VTML80.out,nucl:nucleotide.out' -s 5.7 -k 0 --k-score seq:2147483647,prof:2147483647 --alph-size aa:21,nucl:5 --max-seqs 300 --split 0 --split-mode 2 --split-memory-limit 0 --diag-score 1 --exact-kmer-matching 0 --mask 0 --mask-prob 0.9 --mask-lower-case 0 --min-ungapped-score 15 --spaced-kmer-mode 1 --rescore-mode 0 --filter-hits 0 --sort-results 0 --mask-profile 1 --e-profile 0.001 --wg 0 --allow-deletion 0 --filter-msa 1 --filter-min-enable 0 --max-seq-id 0.9 --qid '0.0' --qsc -20 --cov 0 --diff 1000 --pseudo-cnt-mode 0 --gap-pc 10 --min-length 10 --max-length 32734 --max-gaps 2147483647 --contig-start-mode 2 --contig-end-mode 2 --orf-start-mode 1 --forward-frames 1,2,3 --reverse-frames 1,2,3 --translation-table 1 --translate 0 --use-all-table-starts 0 --id-offset 0 --create-lookup 0 --add-orf-stop 0 --sequence-overlap 0 --sequence-split-mode 1 --headers-split-mode 0 --chain-alignments 0 --merge-query 1 --search-type 0 --num-iterations 1 --start-sens 4 --sens-steps 1 --exhaustive-search 0 --exhaustive-search-filter 0 --strand 1 --lca-search 0 --disk-space-limit 0 --force-reuse 0 --remove-tmp-files 1 
 
-prefilter /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempBA/16578810121855290995/pref_0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' --seed-sub-mat 'aa:VTML80.out,nucl:nucleotide.out' -k 0 --k-score seq:2147483647,prof:2147483647 --alph-size aa:21,nucl:5 --max-seq-len 65535 --max-seqs 300 --split 0 --split-mode 2 --split-memory-limit 0 -c 0 --cov-mode 0 --comp-bias-corr 0 --comp-bias-corr-scale 1 --diag-score 1 --exact-kmer-matching 0 --mask 0 --mask-prob 0.9 --mask-lower-case 0 --min-ungapped-score 15 --add-self-matches 0 --spaced-kmer-mode 1 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --threads 8 --compressed 0 -v 3 -s 5.7 
+prefilter /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempBA/10660061995587333307/pref_0 --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' --seed-sub-mat 'aa:VTML80.out,nucl:nucleotide.out' -k 0 --k-score seq:2147483647,prof:2147483647 --alph-size aa:21,nucl:5 --max-seq-len 65535 --max-seqs 300 --split 0 --split-mode 2 --split-memory-limit 0 -c 0 --cov-mode 0 --comp-bias-corr 0 --comp-bias-corr-scale 1 --diag-score 1 --exact-kmer-matching 0 --mask 0 --mask-prob 0.9 --mask-lower-case 0 --min-ungapped-score 15 --add-self-matches 0 --spaced-kmer-mode 1 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --threads 8 --compressed 0 -v 3 -s 5.7 
 
 Query database size: 100 type: Aminoacid
 Estimated memory consumption: 997M
@@ -219,7 +219,7 @@ Index table: counting k-mers
 [=================================================================] 8.44K 0s 33ms
 Index table: Masked residues: 0
 Index table: fill
-[=================================================================] 8.44K 0s 75ms
+[=================================================================] 8.44K 0s 72ms
 Index statistics
 Entries:          2296010
 DB size:          501 MB
@@ -235,14 +235,14 @@ Top 10 k-mers
     VLLLNR	26
     NTYIKS	26
     TSTRSV	26
-Time for index table init: 0h 0m 0s 369ms
+Time for index table init: 0h 0m 0s 330ms
 Process prefiltering step 1 of 1
 
 k-mer similarity threshold: 112
 Starting prefiltering scores calculation (step 1 of 1)
 Query db start 1 to 100
 Target db start 1 to 8443
-[=================================================================] 100 0s 104ms
+[=================================================================] 100 0s 80ms
 
 307.259537 k-mers per position
 4725 DB matches per sequence
@@ -252,100 +252,100 @@ Target db start 1 to 8443
 34 median result list length
 0 sequences with 0 size result lists
 Time for merging to pref_0: 0h 0m 0s 0ms
-Time for processing: 0h 0m 0s 999ms
-align /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempBA/16578810121855290995/pref_0 /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resBA --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.001 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 0 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 8 --compressed 0 -v 3 
+Time for processing: 0h 0m 0s 925ms
+align /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempBA/10660061995587333307/pref_0 /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resBA --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.001 --min-seq-id 0 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0 --cov-mode 0 --max-seq-len 65535 --comp-bias-corr 0 --comp-bias-corr-scale 1 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca substitution:1.100,context:1.400 --pcb substitution:4.100,context:5.800 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --corr-score-weight 0 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --zdrop 40 --threads 8 --compressed 0 -v 3 
 
 Compute score, coverage and sequence identity
 Query database size: 100 type: Aminoacid
 Target database size: 8443 type: Aminoacid
 Calculation of alignments
-[=================================================================] 100 0s 175ms
+[=================================================================] 100 0s 140ms
 Time for merging to resBA: 0h 0m 0s 0ms
 4275 alignments calculated
 716 sequence pairs passed the thresholds (0.167485 of overall calculated)
 7.160000 hits per query sequence
-Time for processing: 0h 0m 0s 182ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempBA/16578810121855290995/pref_0 -v 3 
+Time for processing: 0h 0m 0s 147ms
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempBA/10660061995587333307/pref_0 -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempBA/16578810121855290995/aln_0 -v 3 
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempBA/10660061995587333307/aln_0 -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempBA/16578810121855290995/input_0 -v 3 
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempBA/10660061995587333307/input_0 -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/tempBA/16578810121855290995/aln_merge -v 3 
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/tempBA/10660061995587333307/aln_merge -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-filterdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resAB /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resAB_sorted --sort-entries 2 --filter-column 2 --threads 8 --compressed 0 -v 3 
+filterdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resAB /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resAB_sorted --sort-entries 2 --filter-column 2 --threads 8 --compressed 0 -v 3 
 
 Filtering by sorting entries
 [=================================================================] 8.44K 0s 2ms
 Time for merging to resAB_sorted: 0h 0m 0s 2ms
-Time for processing: 0h 0m 0s 14ms
-filterdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resAB_sorted /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resA_best_B --extract-lines 1 --threads 8 --compressed 0 -v 3 
+Time for processing: 0h 0m 0s 15ms
+filterdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resAB_sorted /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resA_best_B --extract-lines 1 --threads 8 --compressed 0 -v 3 
 
 Filtering by extracting the first 1 lines
 [=================================================================] 8.44K 0s 2ms
 Time for merging to resA_best_B: 0h 0m 0s 2ms
-Time for processing: 0h 0m 0s 14ms
-filterdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resBA /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resB_best_A --beats-first --filter-column 2 --comparison-operator e --threads 8 --compressed 0 -v 3 
+Time for processing: 0h 0m 0s 12ms
+filterdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resBA /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resB_best_A --beats-first --filter-column 2 --comparison-operator e --threads 8 --compressed 0 -v 3 
 
 Filtering by numerical comparison to first row
-==========[=======================================================] 100 0s 4ms
+[=================================================================] 100 0s 2ms
 Time for merging to resB_best_A: 0h 0m 0s 0ms
-Time for processing: 0h 0m 0s 6ms
-swapresults /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resB_best_A /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resB_best_A_swap --threads 8 --compressed 0 -v 3 -e 100000000 
+Time for processing: 0h 0m 0s 3ms
+swapresults /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resB_best_A /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resB_best_A_swap --threads 8 --compressed 0 -v 3 -e 100000000 
 
 Computing offsets.
 [=================================================================] 100 0s 1ms
 
 Reading results.
-====[=============================================================] 100 0s 2ms
+======================[===========================================] 100 0s 2ms
 
-Output database: /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resB_best_A_swap
+Output database: /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resB_best_A_swap
 [=================================================================] 8.44K 0s 1ms
 
 Time for merging to resB_best_A_swap: 0h 0m 0s 2ms
 Time for processing: 0h 0m 0s 13ms
-mergedbs /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resA_best_B /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/res_best_merged /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resA_best_B /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resB_best_A_swap --compressed 0 -v 3 
+mergedbs /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resA_best_B /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/res_best_merged /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resA_best_B /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resB_best_A_swap --compressed 0 -v 3 
 
-Merging the results to /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/res_best_merged
+Merging the results to /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/res_best_merged
 [=================================================================] 8.44K 0s 1ms
 Time for merging to res_best_merged: 0h 0m 0s 0ms
 Time for processing: 0h 0m 0s 3ms
-filterdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/res_best_merged /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/res_best_merged_sorted --sort-entries 2 --filter-column 2 --threads 8 --compressed 0 -v 3 
+filterdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/res_best_merged /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/res_best_merged_sorted --sort-entries 2 --filter-column 2 --threads 8 --compressed 0 -v 3 
 
 Filtering by sorting entries
 [=================================================================] 8.44K 0s 1ms
 Time for merging to res_best_merged_sorted: 0h 0m 0s 2ms
-Time for processing: 0h 0m 0s 7ms
-result2rbh /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/res_best_merged_sorted /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/result --threads 8 --compressed 0 -v 3 
+Time for processing: 0h 0m 0s 4ms
+result2rbh /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/res_best_merged_sorted /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/result --threads 8 --compressed 0 -v 3 
 
 [=================================================================] 8.44K 0s 0ms
 Time for merging to result: 0h 0m 0s 2ms
-Time for processing: 0h 0m 0s 16ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resAB -v 3 
+Time for processing: 0h 0m 0s 7ms
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resAB -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resBA -v 3 
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resBA -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resA_best_B -v 3 
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resA_best_B -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/resB_best_A -v 3 
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/resB_best_A -v 3 
 
 Time for processing: 0h 0m 0s 0ms
-rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/2120745040337940326/res_best -v 3 
+rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/rbh_tmp/4892032250439766664/res_best -v 3 
 
 Time for processing: 0h 0m 0s 0ms
 /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/results/Ex100_RBHs.tsv exists and will be overwritten
 convertalis /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/query /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/target /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/result /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/results/Ex100_RBHs.tsv --sub-mat 'aa:blosum62.out,nucl:nucleotide.out' --format-mode 0 --format-output query,target,fident,alnlen,mismatch,gapopen,qstart,qend,tstart,tend,evalue,bits --translation-table 1 --gap-open aa:11,nucl:5 --gap-extend aa:1,nucl:2 --db-output 0 --db-load-mode 0 --search-type 0 --threads 8 --compressed 0 -v 3 
 
-[=================================================================] 8.44K 0s 4ms
+[=================================================================] 8.44K 0s 3ms
 Time for merging to Ex100_RBHs.tsv: 0h 0m 0s 2ms
-Time for processing: 0h 0m 0s 22ms
+Time for processing: 0h 0m 0s 10ms
 rmdb /home/s2/PlayGround/GitHub_Base/CC_JKI23/CC2/tmp/5445417379912085777/result -v 3 
 
 Time for processing: 0h 0m 0s 0ms
