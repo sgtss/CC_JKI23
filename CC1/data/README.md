@@ -1,1 +1,1 @@
-This folder contains data files for CC1.
+This folder contains sample data files for CC1.
