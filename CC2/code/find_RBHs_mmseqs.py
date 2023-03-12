@@ -3,6 +3,9 @@
 import os, argparse, subprocess
 import pandas as pd
 
+from itertools import islice
+from Bio import SeqIO
+
 # standard ftp link for information of NCBI REFSEQ assemblies
 refseq_asmb_info_ftp = "ftp://ftp.ncbi.nlm.nih.gov/genomes/ASSEMBLY_REPORTS/assembly_summary_refseq.txt"
 
@@ -163,6 +166,14 @@ def process_downloaded_files(file_path):
     #downloading fasta files, not overwrting as need it for fire path
     subprocess.run(['gunzip', '-k', file_path], check=True)
 
+def generate_query_file(fasta_file_path):
+
+
+    input_seq = list(SeqIO.parse(fasta_file_path, "fasta"))[:100]
+    SeqIO.write(input_seq, qry_file, "fasta")
+    print('Succesfully generated SUB Query file :', qry_file)
+
+
 # process user input to download seq data
 def get_data(id, name, n):
 
@@ -192,6 +203,7 @@ def get_data(id, name, n):
                     process_downloaded_files(dnd_file_path)
                     ref_fasta_loc = dnd_file_path[:-3]
                     print('Succesfully downloaded REF fasta file :', ref_fasta_loc)
+                    #generate_query_file(ref_fasta_loc)
 
                 elif n == 2: 
                     #print('saving as sub')                 # save as sub seq file
@@ -200,6 +212,7 @@ def get_data(id, name, n):
                     process_downloaded_files(dnd_file_path)
                     sub_fasta_loc = dnd_file_path[:-3]
                     print('Succesfully downloaded SUB fasta file :', sub_fasta_loc)
+                    generate_query_file(sub_fasta_loc)
 
                 else: print('neither')
             else: print('Ftp path not found')
@@ -220,10 +233,13 @@ def run_mmseqs_easy():
     # create log file to store output
     with open(mmseqs_log_file,'w') as mlf:
 
+        print('Running mmseqs to find RBHs')
+              
         # call mmseqs easy-rbh function (via subprocess) and pass search args
         subprocess.run(["mmseqs", "easy-rbh", ref_fasta_loc, qry_file, rbh_list, tmp_fldr],
-                    check=True, stdout=mlf, text=True)
+                    check=True, stdout=mlf, stderr=mlf, text=True)
         mlf.close()
+        print('Succesfully generated RBHs list :', rbh_list)
 # execute         
 #run_mmseqs_easy()
 
@@ -247,6 +263,7 @@ if ref_org_name != 'none' or ref_asmb_id != 'none' :
     get_data(ref_asmb_id, ref_org_name, 1)
 if sub_org_name != 'none' or sub_asmb_id != 'none': 
     get_data(sub_asmb_id, sub_org_name, 2)
+    run_mmseqs_easy()
 else:
     print('Please provide REF and SUB info')
 
